@@ -4,7 +4,16 @@
     {
         static void Main()
         {
-            Console.WriteLine();
+            IDeliveryHandler localHandler = new LocalDeliveryHandler();
+            IDeliveryHandler internationalHandler = new InternationalDeliveryHandler();
+            IDeliveryHandler expressHandler = new ExpressDeliveryHandler();
+
+            localHandler.SetNextHandler(internationalHandler);
+            internationalHandler.SetNextHandler(expressHandler);
+
+            Order order = new Order("Electronics", "555 Main Street", true);
+
+            localHandler.HandleRequest(order);
         }
     }
 }
