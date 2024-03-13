@@ -8,7 +8,7 @@ namespace Behavioral_Patterns_1
 {
     public abstract class LibraryHandler
     {
-        protected LibraryHandler? successor;
+        protected LibraryHandler? successor;    // successor is a reference to the next object in the chain
 
         public void SetSuccessor(LibraryHandler successor)
         {
